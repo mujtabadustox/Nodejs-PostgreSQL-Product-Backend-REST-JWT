@@ -1,0 +1,27 @@
+{
+  "name": "task",
+  "version": "1.0.0",
+  "description": "Backend Server using NodeJS and JWTToken",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "db": "docker exec -it task-db-1 psql -U admin -d monke"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mon-kelabs/task.git"
+  },
+  "author": "Faiz Ghanchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mon-kelabs/task/issues"
+  },
+  "homepage": "https://github.com/mon-kelabs/task#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "knex": "^2.4.2",
+    "nodemon": "^2.0.22",
+    "pg": "^8.11.0"
+  }
+}
