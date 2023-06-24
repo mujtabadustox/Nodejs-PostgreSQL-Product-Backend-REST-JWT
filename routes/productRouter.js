@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController.js");
+const auth = require("../middlewares/jwt.js");
 
-router.get("/", productController.getProducts);
-router.get("/:id", productController.getProduct);
-router.put("/:id", productController.updateProducts);
+router.get("/", auth, productController.getProducts);
+router.get("/:id", auth, productController.getProduct);
+router.put("/:id", auth, productController.updateProducts);
 
 module.exports = router;
