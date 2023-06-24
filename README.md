@@ -1,63 +1,72 @@
-# Monke Labs Full Stack Developer Exercise
+Sorry i did not read the instructions on github so i didnt fork and clone , I only cloned and put it in my private repo and I also didnt use docker since i didnt read the instructions here though I did see it in package.json file, So, I used PostreSQL from my local PC , you can find its url from knex file , just have to change back to yours
 
-## Description
+After that please run migrations and seed since for authentication I am creating two more coloumns in Customer table , email and password and run the seed file to populate ,the emails are firstname+@gmail.com and passwords are firstname+123 (hashed value , using bcrypt 10 rounds)
 
-This is a simple backend exercise that uses Node.js and Express.js to create a server that serves JSON as a response to a REST API calls. Postgresql is used as the database and Knex.js is used as the query builder. Docker is used to run the database.
+1st i have uploaded .env file since it is a private repo , 2nd i have used Raw SQL even though knex ORM is in project because it is was this way in the code given
 
-## Instructions
+- npm i //to install new dependencies
+- npx knex migrate:latest --env development //to run migrations
+- npx knex seed:run --env=development //to run seeds
+- then nodemon (node server.js)
 
-**Step-1:** Fork and clone the repository.
-```bash
-git clone https://github.com/mon-kelabs/task.git
-```
 
-**Step-2:** Download and Install Docker Desktop from [here](https://www.docker.com/products/docker-desktop).
+to get the token run the Customer Post api , localhost:3000/customer and add email and password in body i.e
 
-**Step-3:** Download and Install Node.js 18 LTS from [here](https://nodejs.org/en/download).
+{
+    "email": "liam@gmail.com",
+    "password" : "liam123"
+}
 
-**Step-4:** After installing Docker Desktop, open the terminal and go to the project directory.
-```bash
-cd task
-```
-**Step-5:** Run the following command to install the dependencies.
-```bash
-npm install knex nodemon pg -g
-npm install
-```
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/8eafa0d4-3dee-474b-9640-ad3a3f9173d2)
 
-**Step-6:** Run the following command to build and run the postgres database.
-```bash
-docker-compose up --build -d
-```
 
-**Step-7:** Run the following command to run the migrations.
-```bash
-knex migrate:latest
-```
 
-**Step-8:** Run the following command to run the seeders.
-```bash
-knex seed:run
-```
+after getting the token please ut token in postman Header by creating key Authorization and value Bearer [token],
+I havent tried with postmans built in Authorization Tab but that should work too
 
-**Step-9:** Run the following command to run the server.
-```bash
-npm run start
-```
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/cbaf1010-a5aa-4256-890a-5562fc5ba3cf)
 
-## Tips
 
-* The server runs on http://localhost:3000.
-* You can access the database cli by running the following command:
-```bash
-    npm run db
-```
-* You can access the database using the following credentials:
-```bash
-    host: localhost
-    port: 5432
-    username: admin
-    password: 12345678
-    database: monke
-```
-Hope you enjoy the exercise!
+the get apis are simple
+
+for post and put
+
+post order 
+
+send this body and token in header
+
+{
+    "customer_id" : 1 ,
+    "products" : [
+        {
+            "product_id" : 8 ,
+            "quantity" : 17
+        },
+        {
+            "product_id" : 9 ,
+            "quantity" : 23
+        }
+    ]
+}
+
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/ec2ec181-a9f6-4fd2-ac2d-7f79fee6d473)
+
+
+for put request send this body and token in header
+
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/b3c3ff4e-a18c-42f6-ae38-c54a408b6580)
+
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/88883711-d9e5-4f65-bcec-8643852e3e1f)
+
+![image](https://github.com/mujtabadustox/monke-task/assets/90598402/89ddf728-016e-41f9-9867-66fab11395dc)
+
+I havent tested this fully but it works for a dummy backend , sometimes values get bad because of mutation i am using very bad logic , using let keyword etc , I havent thought on it much , but it does work 99% of the time , it can be better i will do later if i get time for now for this task i feel like it is ok
+
+
+Thank you
+
+
+
+
+
+
