@@ -1,4 +1,4 @@
-Sorry i did not read the instructions on github so i didnt fork and clone , I only cloned and put it in my private repo and I also didnt use docker since i didnt read the instructions here though I did see it in package.json file, So, I used PostreSQL from my local PC , you can find its url from knex file , just have to change back to yours
+I used PostgreSQL from my local PC , you can find its url from knex file , just have to change back to yours
 
 After that please run migrations and seed since for authentication I am creating two more coloumns in Customer table , email and password and run the seed file to populate ,the emails are firstname+@gmail.com and passwords are firstname+123 (hashed value , using bcrypt 10 rounds)
 
